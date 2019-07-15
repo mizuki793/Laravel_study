@@ -7,13 +7,15 @@
         color:#999;
         margin:5px;
     }
+
     h1{
         font-size:50px;
-        text-aligin:right;
+        text-align:right;
         color:#f6f6f6;
         margin:-20px 0px -30px 0px;
-        letter-spacing:-4px;
+        letter-spacing:-4pt;
     }
+
     ul{
         font-size:12pt;
     }
@@ -31,31 +33,26 @@
     }
     .footer{
         text-align:right;
-        font-weight:bold;
-        margin:10px;
-        border-bottom:solid 1px #ccc; color:#ccc;
+        font-size:10pt;
+        margin:10pt;
+        border-bottom:solid 1px #ccc;
+        color:#ccc;
     }
     </style>
 </head>
 <body>
-<h1>@yield('title')</h1>
-@section('menubar')
-<h2 class="menutitle">※メニュー</h2>
-<ul>
-    <li>@show</li>
-</ul>
-<hr size ="1">
-<div class="content">
-@yield('content')
-</div>
-<div class="footer">
-</div>
+    <h1>@yield('title')</h1>
+    @section('menubar')
+    <h2 class="menutitle">※メニュー</h2>
+    <ul>
+        <li>@show</li>
+    </ul>
+    <hr size="1">
+    <div class="content">
+    @yield('content')
+    </div>
+    <div class="footer">
+    @yield('footer')
+    </div>
 </body>
-</html>
-
-</body>
-
-
-    </style>
-</head>
 </html>
