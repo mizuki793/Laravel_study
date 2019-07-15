@@ -7,7 +7,22 @@
 @endsection
 
 @section('content')
-    <p>ここが本文のコンテンツ</p>
-    <p>これは、<middleware>google.com</middleware>へのリンクです></p>
-    <p>これは、<middleware>yahoo.co.jp</middleware>へのリンクです></p>
+    <p>{{$msg}}</p>
+    @if(count($errors)> 0)
+    <div>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <table>
+    <form action="/hello" method="post">
+        {{ csrf_field()}}
+        <tr><th>name: </th>
+            <td><input type="text" name="name"
+            ></td>
+        </tr>
+    </table>
 @endsection
