@@ -9,13 +9,11 @@ use Illuminate\Support\ServiceProvider;
 
 class HelloServiceProvider extends ServiceProvider
 {
-    public function boot()
-    {
-     $validator = $this->app['validator'];
-     $validator->resolver(function($translator,$data,$rules,$messages)
-     {
-         return new HelloValidator($translator,$data,$rules,$messages);
-      });
-        
-    }
+ public function boot()
+ {
+     $validator = $this ->app['validator'];
+     $validator->resolver(function($translator, $data, $rules, $messages){
+         return new HelloValidator($translator, $data, $rules, $messages);
+     });
+ }
 }
