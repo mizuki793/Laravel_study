@@ -1,0 +1,9 @@
+diff a/app/Providers/HelloServiceProvider.php b/app/Providers/HelloServiceProvider.php	(rejected hunks)
+@@ -4,6 +4,7 @@
+ 
+ use Illuminate\Support\Facades\View;
+ use Illuminate\Support\ServiceProvider;
++// use Validator;
+ // use App\Http\validators\HelloValidator;
+ 
+ class HelloServiceProvider extends ServiceProvider
