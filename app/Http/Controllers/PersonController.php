@@ -10,23 +10,20 @@ class PersonController extends Controller
     public function index(Request $request)
     {
         $items = Person::all();
-        return view('person.index', ['items'=> $items]);
+        return view('person.index', ['items' => $items]);
     }
-    
-    
+
     public function find(Request $request)
     {
-        return view('person.find',['input' =>'']);
+        return view('person.find', ['input' => '']);
     }
-    
-    
+
     public function search(Request $request)
     {
-        $min = $request->input*1;
+        $min = $request->input * 1;
         $max = $min + 10;
-        $item = Person::ageGreaterThan($min)->
-            ageLessThan($max)->first();
-        $param = ['input'=>$request->input,'item'=>$item];
+        $item = Person::ageGreaterThan($min)->ageLessThan($max)->first();
+        $param = ['input' => $request->input, 'item' => $item];
         return view('person.find', $param);
     }
 
@@ -37,9 +34,9 @@ class PersonController extends Controller
 
     public function create(Request $request)
     {
-        $this->validate($request,Person::$rules);
-        $perosn = new Person;
-        $form = $request->all;
+        $this->validate($request, Person::$rules);
+        $person = new Person;
+        $form = $request->all();
         unset($form['_token']);
         $person->fill($form)->save();
         return redirect('/person');
@@ -56,9 +53,23 @@ class PersonController extends Controller
         $this->validate($request, Person::$rules);
         $person = Person::find($request->id);
         $form = $request->all();
-        unset($form['__token']);
+        unset($form['_token']);
         $person->fill($form)->save();
         return redirect('/person');
     }
-    
+
+    public function delete(Request $request)
+    {
+        $person = Person::find($request->id);
+        return view('person.del', ['form' => $person]);
+    }
+
+    public function remove(Request $request)
+    {
+        Person::find($request->id)->delete();
+        return redirect('/person');
+    }
 }
+
+
+// json_decode(Person::all());
