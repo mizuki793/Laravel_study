@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 
 class HelloController extends Controller{
 	public function index(Request $request){
-		return view('hello.index',['msg'=>'フォームを入力:']);
+		$sort =$request->sort;
+		$items=Person::orderBy($sort,'asc')
+			->paginate(5);
+		$param = ['items'=>$items,'sort'=>$sort];
+		return view('hello.index',$param);
 	}
 	public function post(Request $request){
 		$validate_rule = [
