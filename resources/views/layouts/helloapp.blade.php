@@ -1,5 +1,6 @@
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="/css/app.css">
     <title>@yield('title')</title>
     <style>
     body{
