@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('hello', 'HelloController@index')
-    ->middleware('auth');
     
 
 Route::post('hello', 'HelloController@post');
